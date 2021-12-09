@@ -1,0 +1,44 @@
+<nodehp>
+	include('./admin/header.nodehp', {
+		title: "Coral Admin | Home",
+		session: data.session
+	});
+</nodehp>
+	<nodehp>
+		echo(`<script type="text/javascript">
+				var auth = {}; 
+				auth.username = '${data.session.auth.username}';
+				auth.password = '${data.session.auth.password}';
+		</script>`);
+	</nodehp>
+	<div class="container">
+		<h1>Coral Home</h1>
+		<nodehp>
+			echoTag('p', `id="memoryUsage"`, `Memory Usage: ${data.memoryUsage}`)
+		</nodehp>
+		<b>Databases:</b>
+		<dl>
+			<nodehp>
+				data.database.forEach((db)=>{
+					echoTag('dt', null, db.name);
+					db.tables.forEach((table)=>{
+						echoTag('dd', null, table.name);
+					});
+				});
+			</nodehp>
+		</dl>
+	</div>
+	<script type="text/javascript">
+		var memory_used = document.getElementById("memoryUsage");
+		setInterval(()=>{
+			canal.get("http://" + location.host + "/meta")
+				.then((response)=>{
+					memory_used.innerHTML = "Memory Usage: " + response.memoryUsage;
+				})
+				.catch((error)=>{
+					// console.log("err: ", error);
+				});
+		}, 500);
+	</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "steamboat",
+  "version": "0.1.1",
+  "description": "Networking Protocol Engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "12andrewf",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/12Thanjo/steamboat"
+  },
+  "dependencies": {
+    "nodehp": "^1.4.2",
+    "virtuosity-server": "^0.6.10"
+  }
+}

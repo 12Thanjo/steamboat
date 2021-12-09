@@ -1,0 +1,18 @@
+{
+  "name": "ferry",
+  "version": "0.1.0",
+  "description": "HTTP request handler built on top of Waterfall",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "12andrewf",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/12Thanjo/steamboat"
+  },
+  "dependencies": {
+    "virtuosity-server": "^0.6.10"
+  }
+}

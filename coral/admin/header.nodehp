@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<nodehp>
+		echoTag("title", null, data.title);
+	</nodehp>
+	<style type="text/css">
+		html{
+		    color: #d9dbdd;
+		    user-select: none;
+		    font-family: "Segoe UI";
+		}
+
+		#nav {
+		    display: flex;
+		    justify-content: space-between;
+		    align-items: center;
+		    height: 30px;
+		    background: #252729;
+		    -webkit-app-region: drag;
+		    z-index: 50;
+		}
+
+		#nav > div {
+		    height: 100%;
+		    display: flex;
+		    justify-content: space-between;
+		    align-items: center;
+		}
+
+
+		button {
+		    -webkit-app-region: no-drag;
+		    height: 100%;
+		    padding: 0 15px;
+		    border: none;
+		    background: transparent;
+		    outline: none;
+		    z-index: 50;
+		}
+
+		button:hover {
+		    background: #393E43;
+		}
+
+		#close:hover {
+		    background: #922a2a;
+		}
+
+		button b {
+		    color: #d9dbdd;
+		}
+
+		body{
+		    margin: 0px;
+		    overflow: hidden;
+		}
+
+		canvas{
+		    overflow: hidden;
+		    margin: 0px!important;
+		}
+
+		.center > button{
+		    background: #393E43;
+		    margin-left: 4px;
+		    margin-right: 4px;
+		    border-radius: 6px;
+		}
+
+		.center > button:hover{
+		    background: #596169;
+		}
+
+
+		/**********************************************************************************************/
+
+		.container{
+			padding: 30px 20vw;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript"></script>
+	<nodehp>
+		echo(`<script type="text/javascript">\n`);
+		include('../canal/index.js');
+		echo(`</script>`);
+	</nodehp>
+	<div id="nav" style="position: absolute; width: 100%;">
+        <div class="left" role="menu">
+            <button id="Button"><b>Button</b></button>
+        </div>
+        <div class="center">
+            <button id="Center"><b>Center</b></button>
+        </div>
+        <div class="right">
+            <!-- <button id="right"><b></b></button> -->
+            <nodehp>
+            	echoTag('button', `id="right"`, data?.session?.auth?.username);
+            </nodehp>
+        </div>
+    </div>
+    <!-- <br> -->
